@@ -1,10 +1,11 @@
 import React from 'react'
+import '../../styles/Footer.css'
 
 export default function Footer() {
   return (
-    <footer className="site-footer" style={{marginTop: '3rem'}}>
-      <div className="container" style={{padding: '1.25rem 0', textAlign: 'center'}}>
-        <div className="muted">© {new Date().getFullYear()} Chamika Rajaguru — Built for internship applications.</div>
+    <footer className="site-footer footer">
+      <div className="container footer-inner">
+        <div className="muted text-center">© {new Date().getFullYear()} Chamika Rajaguru.</div>
       </div>
     </footer>
   )

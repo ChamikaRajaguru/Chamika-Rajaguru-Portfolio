@@ -1,0 +1,39 @@
+/* Navbar specific styles */
+.site-header { 
+    background: var(--bg); 
+    margin-top: 10px;
+    border-bottom: 1px solid var(--border);
+    margin-left: 0px;
+    
+
+}
+
+.header-inner { 
+    
+    padding-right: 50px;
+    display:flex; 
+    align-items:flex-start; 
+    justify-content:space-between; 
+    
+}
+
+.brand { 
+    font-weight: 600; 
+    font-size: 22px; 
+}
+
+
+.nav-toggle { background: none; border: none; color: var(--text); font-size: 20px; display: inline-block; }
+.nav-links { list-style: none; margin: 0; padding: 0; display: none; }
+.nav-links.open { display: block; }
+.nav-link { color: var(--text); text-decoration: none; padding: 6px 4px; display: inline-block; }
+.nav-link:hover { text-decoration: underline; }
+
+@media (min-width: 768px) {
+  .nav-toggle { display: none; }
+  .nav-links { display: flex !important; gap: 1.25rem; align-items: center; }
+}
+
+.nav-icons { display:flex; align-items:center; gap:8px; }
+.icon-link { color: var(--text); opacity: 0.9; display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:6px; }
+.icon-link:hover { color: var(--accent); background: rgba(59,130,246,0.06); opacity: 1; }

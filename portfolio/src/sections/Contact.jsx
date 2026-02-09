@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SectionTitle from '../components/ui/SectionTitle'
+import '../styles/Contact.css'
 import Button from '../components/ui/Button'
 
 export default function Contact() {
@@ -18,7 +19,7 @@ export default function Contact() {
 
   return (
     <div>
-      <SectionTitle title="Contact" subtitle="Get in touch" />
+      <SectionTitle title="Contact" subtitle="Get in touch" center />
 
       <form onSubmit={handleSubmit} className="contact-form">
         <input

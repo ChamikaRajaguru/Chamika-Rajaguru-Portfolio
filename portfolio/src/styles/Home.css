@@ -1,0 +1,192 @@
+/* Home section styles */
+.home-grid { display: grid; gap: 40px; align-items: center; min-height: calc(100vh - 160px); position: relative; }
+.home-grid > .home-content, .home-grid > .profile-card { position: relative; z-index: 3; }
+.profile-card { display:flex; align-items:center; justify-content:flex-end; padding:20px; }
+
+.home-content { text-align: left; max-width: 560px; }
+.home-paragraph { margin-bottom: 30px; }
+.btn-group { margin-top: 16px; display: flex; gap: 12px; align-items: center; }
+
+/* Larger title and subtitle in Home */
+.home-content .section-title h2 {
+	font-size: 40px; /* increased */
+	line-height: 1.04;
+	margin-bottom: 6px;
+}
+.home-content .section-title p {
+	font-size: 18px;
+	margin-top: 4px;
+	color: var(--muted);
+}
+
+/* Avatar */
+.profile-avatar {
+	width: 400px;
+	height: 400px;
+	border-radius: 50%;
+	object-fit: cover;
+	display: block;
+}
+
+@media (max-width: 767px) {
+	.profile-avatar { width: 400px; height: 400px; }
+	.home-grid { gap: 24px; }
+	.profile-card { justify-content: center; }
+
+	.home-content .section-title h2 { font-size: 28px; }
+	.home-content .section-title p { font-size: 16px; }
+}
+
+@media (min-width: 768px) {
+	.home-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Blue glow background blobs */
+.home-grid::before {
+	content: "";
+	position: absolute;
+	left: -8%;
+	top: -6%;
+	width: 56%;
+	height: 64%;
+	background:
+		radial-gradient(circle at 16% 18%, rgba(59,130,246,0.36), rgba(6,182,212,0.12) 36%, transparent 60%),
+		radial-gradient(circle at 60% 40%, rgba(59,130,246,0.14), transparent 55%);
+	filter: blur(72px);
+	transform: translateZ(0) scale(1);
+	z-index: 0;
+	pointer-events: none;
+	animation: glowPulse 8s ease-in-out infinite;
+}
+
+.home-grid::after {
+	content: "";
+	position: absolute;
+	right: -6%;
+	bottom: -10%;
+	width: 44%;
+	height: 44%;
+	background:
+		radial-gradient(circle at 60% 60%, rgba(0, 98, 255, 0.22), rgba(6,182,212,0.06) 40%, transparent 100%),
+		radial-gradient(circle at 60% 60%, rgba(0, 136, 255, 0.08), transparent 100%);
+	filter: blur(50px);
+	z-index: 0;
+	pointer-events: none;
+	animation: glowPulse 50s ease-in-out infinite reverse;
+}
+
+@media (max-width: 767px) {
+	.home-grid::before, .home-grid::after { display: none; }
+}
+
+@keyframes glowPulse {
+	0% { transform: translateZ(0) scale(1); opacity: 0.95; }
+	45% { transform: translateZ(0) scale(1.06); opacity: 1; }
+	60% { transform: translateZ(0) scale(1.02); opacity: 0.9; }
+	100% { transform: translateZ(0) scale(1); opacity: 0.95; }
+}
+
+/* extra local glows */
+.home-content::after {
+	content: "";
+	position: absolute;
+	left: 6%;
+	top: 10%;
+	width: 260px;
+	height: 260px;
+	background: radial-gradient(circle at 30% 30%, rgba(59,130,246,0.34), rgba(6,182,212,0.08) 40%, transparent 65%);
+	filter: blur(48px);
+	z-index: 1;
+	pointer-events: none;
+	animation: glowPulse 9s ease-in-out infinite;
+	mix-blend-mode: screen;
+}
+
+.profile-card::before {
+	content: "";
+	position: absolute;
+	right: -12%;
+	top: 6%;
+	width: 180px;
+	height: 180px;
+	background: radial-gradient(circle at 50% 50%, rgba(59,130,246,0.32), rgba(6,182,212,0.06) 40%, transparent 60%);
+	filter: blur(40px);
+	z-index: 1;
+	pointer-events: none;
+	animation: glowPulse 7.5s ease-in-out infinite reverse;
+	mix-blend-mode: screen;
+}
+
+@media (max-width: 767px) {
+	.home-content::after, .profile-card::before { display: none; }
+}
+
+/* subtle animated gradient layer */
+.gradient-layer {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background: linear-gradient(120deg, rgba(59,130,246,0.10) 0%, rgba(6,182,212,0.06) 25%, rgba(16,185,129,0.02) 50%, transparent 80%);
+	background-size: 200% 200%;
+	filter: blur(40px) saturate(1.05);
+	opacity: 0.18;
+	mix-blend-mode: screen;
+	animation: gradientShift 14s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+	0% { background-position: 0% 50%; transform: translateZ(0) scale(1); }
+	50% { background-position: 100% 50%; transform: translateZ(0) scale(1.02); }
+	100% { background-position: 0% 50%; transform: translateZ(0) scale(1); }
+}
+
+@media (max-width: 767px) {
+	.gradient-layer { display: none; }
+}
+
+/* moving dots (subtle particle layer) */
+.dot-layer {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background-image: radial-gradient(rgba(255,255,255,0.85) 1px, transparent 1px);
+	background-size: 12px 12px;
+	opacity: 0.06;
+	animation: dotsMove 28s linear infinite;
+	mix-blend-mode: screen;
+}
+
+@keyframes dotsMove {
+	from { background-position: 0 0; }
+	to { background-position: 1600px 800px; }
+}
+
+/* larger drifting stars layer (parallax via CSS variables set from JS) */
+.star-layer {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background-image:
+		radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 2px),
+		radial-gradient(circle, rgba(255,255,255,0.65) 1.5px, transparent 3px);
+	background-size: 280px 220px, 420px 320px;
+	opacity: 0.09;
+	transform: translate(var(--mx, 0), calc(var(--sy, 0) * -1));
+	transition: transform 0.12s linear;
+	filter: blur(1px);
+	mix-blend-mode: screen;
+	animation: starsDrift 36s linear infinite;
+}
+
+@keyframes starsDrift {
+	0% { background-position: 0 0, 0 0; }
+	50% { background-position: -420px 220px, 260px -180px; }
+	100% { background-position: 0 0, 0 0; }
+}
+
+@media (max-width: 767px) {
+	.dot-layer, .star-layer { display: none; }
+}

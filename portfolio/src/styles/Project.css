@@ -1,0 +1,5 @@
+/* Projects section styles */
+.projects-grid { display: grid; gap: 16px; }
+.tags-row { margin-top: 12px; display: flex; gap: 8px; }
+.tag { font-size: 12px; padding: 4px 8px; border-radius: 4px; background: rgba(59,130,246,0.12); }
+.card-title { margin: 0; font-weight: 600; }

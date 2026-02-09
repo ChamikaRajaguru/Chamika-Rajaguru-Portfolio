@@ -1,0 +1,25 @@
+/* Contact section styles */
+.contact-form {
+	display: grid;
+	gap: 12px;
+	max-width: 680px;
+	width: 100%;
+	margin: 24px auto;
+	padding: 0 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+	background: var(--card);
+	color: var(--text);
+	border: none;
+	padding: 12px;
+	border-radius: 6px;
+}
+
+/* center the submit button row */
+.contact-form > div { display: flex; justify-content: center; }
+
+@media (max-width: 480px) {
+	.contact-form { padding: 0 8px; }
+}
