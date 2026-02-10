@@ -1,17 +1,17 @@
 export const projects = [
   {
     id: 1,
-    title: 'Crypto News website',
-    description: 'eveloped a responsive Crypto News website using React.js that displays real-time cryptocurrency updates, market trends, and news articles. Implemented dynamic API integration, reusable components, and a modern UI to deliver a fast and user-friendly experience.',
-    link: 'https://github.com/ChamikaRajaguru/Crypto-news-website.git',
-    tags: ['React', 'API Integration']
+    title: 'Eonwear',
+    description: 'Built a Luxury Watch E-Commerce Website for men & women using React JS.Designed with a premium dark theme, responsive layout, and clean component structure.',
+    link: 'https://github.com/ChamikaRajaguru/Eonwear.git',
+    tags: ['React']
   },
   {
     id: 2,
-    title: 'Project Beta',
-    description: 'An API built with Node.js and Express for data management.',
+    title: 'Crypto News',
+    description: 'Developed a responsive Crypto News website using React.js that displays real-time cryptocurrency updates, market trends, and news articles. ',
     link: 'https://github.com/ChamikaRajaguru/Crypto-news-website.git',
-    tags: ['Node.js', 'Express']
+    tags: ['react']
   },
    {
     id: 3,
