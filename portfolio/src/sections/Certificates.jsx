@@ -14,6 +14,11 @@ export default function Certificates() {
           <Card key={c.id}>
               <h3 className="card-title">{c.title}</h3>
               <p className="muted mt-8">{c.issuer} • {c.year}</p>
+              {c.link && c.link !== '#' && (
+                <a href={c.link} target="_blank" rel="noopener noreferrer" className="cert-link">
+                  View Certificate →
+                </a>
+              )}
           </Card>
         ))}
       </div>

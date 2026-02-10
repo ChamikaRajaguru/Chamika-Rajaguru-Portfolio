@@ -21,6 +21,11 @@ export default function Projects() {
                 </span>
               ))}
             </div>
+            {p.link && p.link !== '#' && (
+              <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link">
+                View Project →
+              </a>
+            )}
           </Card>
         ))}
       </div>

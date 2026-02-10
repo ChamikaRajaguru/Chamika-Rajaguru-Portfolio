@@ -2,24 +2,54 @@ import React, { useState } from 'react'
 import SectionTitle from '../components/ui/SectionTitle'
 import '../styles/Contact.css'
 import Button from '../components/ui/Button'
+import emailjs from '@emailjs/browser'
+
+// Initialize EmailJS (replace with your public key)
+emailjs.init('YOUR_PUBLIC_KEY_HERE')
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [loading, setLoading] = useState(false)
+  const [status, setStatus] = useState('')
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    // placeholder: in real app send to backend or email service
-    alert(`Thanks, ${form.name}! Your message was sent.`)
-    setForm({ name: '', email: '', message: '' })
+    setLoading(true)
+    setStatus('')
+
+    try {
+      const templateParams = {
+        to_email: 'chamikasdrajaguru@gmail.com',
+        from_name: form.name,
+        from_email: form.email,
+        message: form.message,
+      }
+
+      await emailjs.send(
+        'YOUR_SERVICE_ID_HERE',
+        'YOUR_TEMPLATE_ID_HERE',
+        templateParams
+      )
+
+      setStatus('success')
+      alert(`Thanks, ${form.name}! Your message was sent successfully.`)
+      setForm({ name: '', email: '', message: '' })
+    } catch (error) {
+      console.error('Email sending failed:', error)
+      setStatus('error')
+      alert('Failed to send message. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
     <div>
-      <SectionTitle title="Contact" subtitle="Get in touch" center />
+      <SectionTitle title="Contact"  center />
 
       <div className="contact-container">
         <form onSubmit={handleSubmit} className="contact-form">
@@ -53,7 +83,9 @@ export default function Contact() {
           />
 
           <div>
-            <Button type="submit">Send Message</Button>
+            <Button type="submit" disabled={loading}>
+              {loading ? 'Sending...' : 'Send Message'}
+            </Button>
           </div>
         </form>
 
@@ -65,12 +97,12 @@ export default function Contact() {
 
           <div className="contact-item">
             <span className="contact-icon">✉</span>
-            <p>yasindudahanayake@gmail.com</p>
+            <p>chamikasdrajaguru@gmail.com</p>
           </div>
 
           <div className="contact-item">
             <span className="contact-icon">📞</span>
-            <p>+94 775595827</p>
+            <p>+94 763134525</p>
           </div>
 
           <div className="contact-item">
