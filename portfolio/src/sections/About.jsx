@@ -51,6 +51,21 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      <div className="about-cards-grid">
+        <div className="card">
+          <h3 className="card-title">Education</h3>
+          <p className="muted mt-8">B.Sc. in Software Engineering at NSBM Green University. Focused on building strong fundamentals in computer science and practical development skills.</p>
+        </div>
+        <div className="card">
+          <h3 className="card-title">Experience</h3>
+          <p className="muted mt-8">Hands-on experience with React, UI/UX design, and responsive web development. Passionate about creating user-centric applications and continuous learning.</p>
+        </div>
+        <div className="card">
+          <h3 className="card-title">Passion</h3>
+          <p className="muted mt-8">Enthusiastic about solving problems through code and design. I love exploring new technologies and collaborating with teams to deliver impactful solutions.</p>
+        </div>
+      </div>
     </div>
   )
 }

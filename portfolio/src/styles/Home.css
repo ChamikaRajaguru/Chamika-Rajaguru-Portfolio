@@ -26,6 +26,14 @@
 	border-radius: 50%;
 	object-fit: cover;
 	display: block;
+	animation: shake 3s ease-in-out infinite;
+}
+
+@keyframes shake {
+	0%, 100% { transform: translateX(0) rotate(0deg); }
+	25% { transform: translateX(-3px) rotate(-0.3deg); }
+	50% { transform: translateX(3px) rotate(0.3deg); }
+	75% { transform: translateX(-3px) rotate(-0.3deg); }
 }
 
 @media (max-width: 767px) {

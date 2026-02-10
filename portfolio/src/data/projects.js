@@ -13,4 +13,11 @@ export const projects = [
     link: '#',
     tags: ['Node.js', 'Express']
   },
+   {
+    id: 3,
+    title: 'Project Gamma',
+    description: 'A full-stack application using React and MongoDB.',
+    link: '#',
+    tags: ['React', 'MongoDB']
+  },
 ]

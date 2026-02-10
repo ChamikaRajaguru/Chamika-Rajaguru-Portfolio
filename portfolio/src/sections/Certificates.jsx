@@ -9,8 +9,8 @@ export default function Certificates() {
     <div>
       <SectionTitle title="Certificates"  center />
 
-      <div className="projects-grid">
-        {certificates.map((c) => (
+      <div className="certificates-grid">
+        {certificates.slice(0, 3).map((c) => (
           <Card key={c.id}>
               <h3 className="card-title">{c.title}</h3>
               <p className="muted mt-8">{c.issuer} • {c.year}</p>

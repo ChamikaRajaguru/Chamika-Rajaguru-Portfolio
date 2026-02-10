@@ -5,7 +5,7 @@
 /* About layout */
 .about-grid {
 	display: grid;
-	grid-template-columns: 50% 50%;
+	grid-template-columns: 40% 60%;
 	gap: 24px;
 	align-items: center;
  	margin-top: 16px;
@@ -15,8 +15,8 @@
 .about-left { display: flex; align-items: center; justify-content: center; }
 
 .about-image {
-	width: 500px;
-	height: 450px;
+	width: 300px;
+	height: 350px;
 	border-radius: 12px;
 	display: flex;
 	align-items: center;
@@ -97,13 +97,39 @@
 	.skill-item { gap: 8px; padding: 6px 8px; }
 	.skill-logo { width: 22px; height: 22px; }
 }
+/* Three cards grid */
+.about-cards-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px;
+	margin-top: 48px;
+}
+
+.about-cards-grid .card {
+	padding: 24px;
+}
+
+.about-cards-grid .card-title {
+	margin-bottom: 12px;
+}
+
+@media (max-width: 1024px) {
+	.about-cards-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
 @media (max-width: 768px) {
  	.about-grid { grid-template-columns: 1fr; gap: 12px; }
- 	.about-image { width: 280px; height: 170px; margin: 0 auto; }
+ 	.about-image { width: 280px; height: 270px; margin: 0 auto; }
  	.about-left { order: -1; }
  	.about-right { text-align: left; }
  	.skills-card { text-align: center; margin-left: 0; }
  	.skills-card ul { justify-content: center; }
 
 	.about-grid::before, .about-grid::after, .about-image::after { display: none; }
+	
+	.about-cards-grid {
+		grid-template-columns: 1fr;
+	}
 }

@@ -21,40 +21,64 @@ export default function Contact() {
     <div>
       <SectionTitle title="Contact" subtitle="Get in touch" center />
 
-      <form onSubmit={handleSubmit} className="contact-form">
-        <input
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          placeholder="Your name"
-          className=""
-          required
-        />
+      <div className="contact-container">
+        <form onSubmit={handleSubmit} className="contact-form">
+          <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Your name"
+            className=""
+            required
+          />
 
-        <input
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          placeholder="Your email"
-          type="email"
-          className=""
-          required
-        />
+          <input
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            placeholder="Your email"
+            type="email"
+            className=""
+            required
+          />
 
-        <textarea
-          name="message"
-          value={form.message}
-          onChange={handleChange}
-          placeholder="Message"
-          rows={6}
-          className=""
-          required
-        />
+          <textarea
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+            placeholder="Message"
+            rows={6}
+            className=""
+            required
+          />
 
-        <div>
-          <Button type="submit">Send Message</Button>
+          <div>
+            <Button type="submit">Send Message</Button>
+          </div>
+        </form>
+
+        <div className="contact-info">
+          <h3 className="contact-title">Let's Talk</h3>
+          <p className="muted contact-description">
+            I hope to gain hands-on experience and enhance my skills through a web development internship.
+          </p>
+
+          <div className="contact-item">
+            <span className="contact-icon">✉</span>
+            <p>yasindudahanayake@gmail.com</p>
+          </div>
+
+          <div className="contact-item">
+            <span className="contact-icon">📞</span>
+            <p>+94 775595827</p>
+          </div>
+
+          <div className="contact-item">
+            <span className="contact-icon">📍</span>
+            <p>Homagama, Srilanka</p>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   )
 }
