@@ -16,15 +16,41 @@ export const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // EmailJS integration would go here
     setStatus('Sending...');
-    setTimeout(() => {
-      setStatus('Message sent successfully!');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus(''), 3000);
-    }, 1500);
+    
+    try {
+      // Create a free access key at https://web3forms.com/
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify({
+            access_key: "YOUR_ACCESS_KEY_HERE", // We will put the key here
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            from_name: "Portfolio Contact Form",
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus('Message sent successfully!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus('Failed to send message. Make sure the Access Key is correct.');
+      }
+    } catch (error) {
+      setStatus('An error occurred. Please try again.');
+    }
+
+    setTimeout(() => setStatus(''), 4000);
   };
 
   return (
@@ -68,7 +94,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400 uppercase tracking-wider">Email Me</p>
-                  <a href="mailto:contact@example.com" className="text-white hover:text-accent transition-colors font-medium">contact@example.com</a>
+                  <a href="mailto:chamikasdrajaguru@gmail.com" className="text-white hover:text-accent transition-colors font-medium">chamikasdrajaguru@gmail.com</a>
                 </div>
               </div>
 

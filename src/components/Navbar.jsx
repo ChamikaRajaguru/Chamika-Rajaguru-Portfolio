@@ -52,23 +52,25 @@ export const Navbar = () => {
             Chamika <span className="text-accent">Rajaguru</span>
           </motion.div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <div className="flex space-x-6">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.name}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-accent ${active === link.name ? 'text-accent' : 'text-gray-400'}`}
-                  onClick={() => setActive(link.name)}
-                >
-                  {link.name}
-                </motion.a>
-              ))}
-            </div>
+          {/* Desktop Menu - Centered Links */}
+          <div className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2 space-x-6">
+            {navLinks.map((link, i) => (
+              <motion.a
+                key={link.name}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                href={link.href}
+                className={`text-sm font-medium transition-colors hover:text-accent ${active === link.name ? 'text-accent' : 'text-gray-400'}`}
+                onClick={() => setActive(link.name)}
+              >
+                {link.name}
+              </motion.a>
+            ))}
+          </div>
+
+          {/* Desktop Menu - Right Button */}
+          <div className="hidden md:flex items-center">
             <motion.a
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}

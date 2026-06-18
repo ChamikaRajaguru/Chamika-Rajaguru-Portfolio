@@ -46,7 +46,7 @@ export const Hero = () => {
               {[
                 { icon: <FaGithub size={20} />, href: '#' },
                 { icon: <FaLinkedin size={20} />, href: '#' },
-                { icon: <Mail />, href: 'mailto:contact@example.com' },
+                { icon: <Mail />, href: 'mailto:chamikasdrajaguru@gmail.com' },
               ].map((social, idx) => (
                 <a 
                   key={idx} 
